@@ -19,7 +19,7 @@ app.use(express.urlencoded({extended:true}));
 
 // Router - uses and posts
 app.use('/users',userRouter)
-app.use('/posts',userRouter)
+app.use('/posts',postRouter)
 
 
 app.get("/",async(req,res)=>{
@@ -29,4 +29,7 @@ app.get("/",async(req,res)=>{
 app.listen(PORT,async()=>{
     await connect();
     console.log("listening on PORT",PORT)
-})
+});
+
+
+module.exports = app;
