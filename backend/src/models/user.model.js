@@ -11,13 +11,15 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    match: /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
+    // Regular Expression for email validation
+    match: /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/ 
   },
   bio: {
     type: String,
     maxlength: 200
   }
 }, {
+    //  By default createdAt and updatedAt 
   timestamps: true
 });
 
