@@ -4,6 +4,7 @@ const app = express();
 const cors = require('cors');
 
 const userRouter = require('./routes/user.route')
+const postRouter = require('./routes/post.route')
 
 
 // Database connection function
@@ -18,6 +19,7 @@ app.use(express.urlencoded({extended:true}));
 
 // Router - uses and posts
 app.use('/users',userRouter)
+app.use('/posts',userRouter)
 
 
 app.get("/",async(req,res)=>{
