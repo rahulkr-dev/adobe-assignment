@@ -3,6 +3,9 @@ const express = require('express')
 const app = express();
 const cors = require('cors');
 
+const userRouter = require('./routes/user.route')
+const postRouter = require('./routes/post.route')
+
 
 // Database connection function
 const connect = require('./database/db')
@@ -14,6 +17,9 @@ app.use(express.json());
 app.use(cors())
 app.use(express.urlencoded({extended:true}));
 
+// Router - uses and posts
+app.use('/users',userRouter)
+app.use('/posts',postRouter)
 
 
 app.get("/",async(req,res)=>{
@@ -23,4 +29,7 @@ app.get("/",async(req,res)=>{
 app.listen(PORT,async()=>{
     await connect();
     console.log("listening on PORT",PORT)
-})
+});
+
+
+module.exports = app;
